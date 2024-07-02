@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    contain: layout;
+    margin-inline: auto;
+    padding: var(--padding-2xl);
+    margin-block: var(--padding);
+    border-radius: var(--border-radius);
+    background-color: var(--primary);
+    box-shadow: var(--box-shadow-lg);
+    overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.question-container,
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.question-container p {
+    color: var(--secondary-darker);
+    font-size: var(--font-size-sm);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.options button {
+    border: var(--border-default);
+    text-align: start;
 }
 
-.App-link {
-  color: #61dafb;
+.options button.wrong {
+    border-color: var(--wrong);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.options button.correct {
+    border-color: var(--correct);
+}
+
+button.next {
+    background: black;
+    color: white;
+    margin-top: 20vh;
+}
+
+button.next:disabled {
+    opacity: 0.1;
+}
+
+.question-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.score-container {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary);
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    transition: width 0.2s ease-in-out;
+    background: var(--secondary-darker);
 }
